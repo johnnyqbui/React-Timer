@@ -8,7 +8,6 @@ const Main = (props) => {
 			<Nav/>
 			<div className="row">
 				<div className="columns medium-6 large-4 small-centered">
-				<p>React Boilerplate Ready to go!</p>
 					{props.children}
 				</div>
 			</div>
