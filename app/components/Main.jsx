@@ -6,8 +6,8 @@ const Main = (props) => {
 	return (
 		<div>
 			<Nav/>
-			<div className="row">
-				<div className="columns medium-6 large-4 small-centered">
+			<div>
+				<div>
 					{props.children}
 				</div>
 			</div>
