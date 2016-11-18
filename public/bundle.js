@@ -27321,6 +27321,11 @@
 			}
 		},
 
+		componentWillUnmount: function componentWillUnmount() {
+			clearInterval(this.timer);
+			this.timer = undefined;
+		},
+
 		startTimer: function startTimer() {
 			var _this = this;
 
@@ -27329,6 +27334,8 @@
 				_this.setState({
 					count: newCount >= 0 ? newCount : 0
 				});
+
+				newCount === 0 ? _this.setState({ countdownStatus: 'stopped' }) : '';
 			}, 1000);
 		},
 
@@ -27981,7 +27988,7 @@
 
 
 	// module
-	exports.push([module.id, ".top-bar, .top-bar ul {\n  background-color: #333; }\n\n.menu-text {\n  color: #fff; }\n\n.menu .menu-text a {\n  display: inline;\n  padding: 0; }\n\n.clock {\n  align-items: center;\n  background: #B5D0E2;\n  border: 2px solid #2099E8;\n  border-radius: 50%;\n  display: flex;\n  height: 14rem;\n  justify-content: center;\n  margin: 4rem auto;\n  width: 14rem; }\n\n.clock-text {\n  color: #fff;\n  font-size: 2.25rem;\n  font-weight: 300; }\n\n.controls {\n  display: flex;\n  justify-content: center; }\n  .controls .button {\n    padding: .75rem 3rem; }\n  .controls .button:first-child {\n    margin-right: 1.5rem; }\n", ""]);
+	exports.push([module.id, ".top-bar, .top-bar ul {\n  background-color: #333; }\n\n.menu-text {\n  color: #fff; }\n\n.menu .menu-text a {\n  display: inline;\n  padding: 0; }\n\n.clock {\n  align-items: center;\n  background: #B5D0E2;\n  border: 2px solid #2099E8;\n  border-radius: 50%;\n  display: flex;\n  height: 14rem;\n  justify-content: center;\n  margin: 4rem auto;\n  width: 14rem; }\n\n.clock-text {\n  color: #fff;\n  font-size: 2.25rem;\n  font-weight: 300; }\n\n.controls {\n  display: flex;\n  justify-content: cyenter; }\n  .controls .button {\n    padding: .75rem 3rem; }\n  .controls .button:first-child {\n    margin-right: 1.5rem; }\n", ""]);
 
 	// exports
 
