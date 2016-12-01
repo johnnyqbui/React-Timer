@@ -116,12 +116,6 @@
 	//App.css
 	__webpack_require__(261);
 
-	/* Example of routing
-		<Route path="about" component={About}/>
-		<Route path='examples' component={Examples}/>
-		<IndexRoute component={Weather}/>
-	*/
-
 	ReactDOM.render(React.createElement(
 		Router,
 		{ history: hashHistory },
@@ -27332,7 +27326,7 @@
 			this.timer = setInterval(function () {
 				var newCount = _this.state.count - 1;
 				_this.setState({
-					count: newCount >= 0 ? newCount : 0
+					count: newCount > 1 ? newCount : 0
 				});
 
 				newCount === 0 ? _this.setState({ countdownStatus: 'stopped' }) : '';
@@ -27369,6 +27363,11 @@
 			return React.createElement(
 				'div',
 				null,
+				React.createElement(
+					'h1',
+					{ className: 'page-title' },
+					'Countdown App'
+				),
 				React.createElement(Clock, { totalSeconds: count }),
 				renderControlArea()
 			);
@@ -27443,8 +27442,7 @@
 			e.preventDefault();
 
 			var strSeconds = this.refs.seconds.value;
-
-			if (strSeconds.match(/^[0-9]*$/)) {
+			if (strSeconds.match(/^\d*$/) && strSeconds !== '') {
 				this.refs.seconds.value = '';
 				this.props.onSetCountdown(parseInt(strSeconds, 10));
 			}
@@ -27988,7 +27986,7 @@
 
 
 	// module
-	exports.push([module.id, ".top-bar, .top-bar ul {\n  background-color: #333; }\n\n.menu-text {\n  color: #fff; }\n\n.menu .menu-text a {\n  display: inline;\n  padding: 0; }\n\n.clock {\n  align-items: center;\n  background: #B5D0E2;\n  border: 2px solid #2099E8;\n  border-radius: 50%;\n  display: flex;\n  height: 14rem;\n  justify-content: center;\n  margin: 4rem auto;\n  width: 14rem; }\n\n.clock-text {\n  color: #fff;\n  font-size: 2.25rem;\n  font-weight: 300; }\n\n.controls {\n  display: flex;\n  justify-content: cyenter; }\n  .controls .button {\n    padding: .75rem 3rem; }\n  .controls .button:first-child {\n    margin-right: 1.5rem; }\n", ""]);
+	exports.push([module.id, ".top-bar, .top-bar ul {\n  background-color: #333; }\n\n.menu-text {\n  color: #fff; }\n\n.menu .menu-text a {\n  display: inline;\n  padding: 0; }\n\n.clock {\n  align-items: center;\n  background: #B5D0E2;\n  border: 2px solid #2099E8;\n  border-radius: 50%;\n  display: flex;\n  height: 14rem;\n  justify-content: center;\n  margin: 4rem auto;\n  width: 14rem; }\n\n.clock-text {\n  color: #fff;\n  font-size: 2.25rem;\n  font-weight: 300; }\n\n.controls {\n  display: flex;\n  justify-content: cyenter; }\n  .controls .button {\n    padding: .75rem 3rem; }\n  .controls .button:first-child {\n    margin-right: 1.5rem; }\n\n.page-title {\n  margin: 2rem 0;\n  text-align: center; }\n", ""]);
 
 	// exports
 

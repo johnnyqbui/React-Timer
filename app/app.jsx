@@ -13,12 +13,6 @@ $(document).foundation();
 //App.css
 require('style!css!sass!applicationStyles');
 
-/* Example of routing
-	<Route path="about" component={About}/>
-	<Route path='examples' component={Examples}/>
-	<IndexRoute component={Weather}/>
-*/
-
 ReactDOM.render(
 	<Router history={hashHistory}>
 		<Route path="/" component={Main}>
