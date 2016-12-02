@@ -1,16 +1,17 @@
-const React = require('react');
-const Clock = require('Clock');
-const Controls = require('Controls');
+import React from 'react';
+import Clock from 'Clock';
+import Controls from 'Controls';
 
-const Timer = React.createClass({
-	getInitialState: function() {
-		return {
+class Timer extends React.Component{
+	constructor(props) {
+		super(props);
+		this.state = {
 			count: 0,
 			timerStatus: 'stopped',
 		}
-	},
+	}
 
-	componentDidUpdate: function(prevProps, prevState) {
+	componentDidUpdate(prevProps, prevState) {
 		if (this.state.timerStatus !== prevState.timerStatus) {
 			switch (this.state.timerStatus) {
 				case 'started':
@@ -24,41 +25,41 @@ const Timer = React.createClass({
 					break;
 			}
 		}
-	},
+	}
 
-	componentWillUnmount: function() {
+	componentWillUnmount() {
 		clearInterval(this.timer);
 		this.timer = undefined;
-	},
+	}
 
-	startTimer: function() {
+	startTimer() {
 		this.timer = setInterval(() => {
 			let newCount = this.state.count + 1;
 			this.setState({count: newCount});
 		}, 1000)
-	},
+	}
 
-	handleSetTimerStatus: function(e) {
+	handleSetTimerStatus(e) {
 		e.preventDefault();
 		this.setState({
 			timerStatus: 'started'
 		})
-	},
+	}
 
-	handleStatusChange: function(newStatus) {
+	handleStatusChange(newStatus) {
 		this.setState({
 			timerStatus: newStatus
 		})
-	},
+	}
 
-	render: function() {
-		const { count, timerStatus } = this.state;
+	render() {
+		const {count, timerStatus} = this.state;
 
 		const renderControlArea = () => {
 			if (timerStatus !== 'stopped') {
-				return <Controls countStatus={timerStatus} onStatusChange={this.handleStatusChange}/>
+				return <Controls countStatus={timerStatus} onStatusChange={this.handleStatusChange.bind(this)}/>
 			} else {
-				return <form ref="form" onSubmit={this.handleSetTimerStatus}>
+				return <form ref="form" onSubmit={this.handleSetTimerStatus.bind(this)}>
 							<button className="button expanded">Start</button>
 						</form>
 			}
@@ -72,6 +73,6 @@ const Timer = React.createClass({
 			</div>
 		)
 	}
-});
+}
 
 module.exports = Timer;

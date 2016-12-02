@@ -1,5 +1,5 @@
-const React = require('react');
-const Nav = require('Nav');
+import React from 'react';
+import Nav from 'Nav';
 
 // Binds this with fat arrow function
 const Main = (props) => {
@@ -12,7 +12,7 @@ const Main = (props) => {
 				</div>
 			</div>
 		</div>
-	);
+	)
 }
 
 module.exports = Main;
