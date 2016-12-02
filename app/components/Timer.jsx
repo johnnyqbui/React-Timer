@@ -38,7 +38,8 @@ const Timer = React.createClass({
 		}, 1000)
 	},
 
-	handleSetTimerStatus: function() {
+	handleSetTimerStatus: function(e) {
+		e.preventDefault();
 		this.setState({
 			timerStatus: 'started'
 		})

@@ -11,6 +11,17 @@ describe('Timer', () => {
 		expect(Timer).toExist();
 	});
 
+	it('should set state to started and begin count', (done) => {
+		const timer = TestUtils.renderIntoDocument(<Timer/>);
+		timer.handleStatusChange('started');
+
+		setTimeout(() => {
+			expect(timer.state.count).toBe(1);
+			expect(timer.state.timerStatus).toBe('started');
+			done();
+		}, 1001);
+	});
+
 	it('should pause timer on paused status', (done) => {
 		const timer = TestUtils.renderIntoDocument(<Timer/>);
 		timer.setState({count: 10});
@@ -34,19 +45,6 @@ describe('Timer', () => {
 			expect(timer.state.timerStatus).toBe('stopped');
 			done();
 		}, 1001);
-	});
-
-	describe('handleSetTimerStatus', () => {
-		it('should set state to started and begin count', (done) => {
-			const timer = TestUtils.renderIntoDocument(<Timer/>);
-			timer.handleSetTimerStatus();
-
-			setTimeout(() => {
-				expect(timer.state.count).toBe(1);
-				expect(timer.state.timerStatus).toBe('started');
-				done();
-			}, 1001);
-		});
 	});
 
 });
