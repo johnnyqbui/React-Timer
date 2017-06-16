@@ -14,9 +14,9 @@ class CountdownForm extends React.Component{
 	render() {
 		return (
 			<div>
-				<form ref="form" onSubmit={this.onSubmit.bind(this)}>
-					<input type="text" placeholder="Enter Time in Seconds" ref="seconds"/>
-					<button className="button expanded">Start</button>
+				<form onSubmit={this.onSubmit.bind(this)}>
+					<input type="text" placeholder="What do you need to do?" ref="todo"/>
+					<button className="button">Add</button>
 				</form>
 			</div>
 		)
